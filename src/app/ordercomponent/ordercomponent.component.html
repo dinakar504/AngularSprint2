@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<div class="container" >
+    <form class="was-validated">
+        
+    <div class="form-group w-25">
+       
+    
+        <label for="inputname">Raw material Name</label>
+        
+        <select class="form-control custom-select form-control browser-default"  [(ngModel)]="selected" name="something1"  required>
+        <option *ngFor="let CodeListPort of spec" #a value="{{CodeListPort.rmsid}}">{{CodeListPort.rmname}}</option>
+        </select>
+        <div class="invalid-feedback">please select rawmatrial</div>
+     </div>
+        <div class="form-group w-25">
+        <label for="inputname1">distributor Name   </label>
+      
+           
+        <select class="form-control custom-select form-control browser-default"  [(ngModel)]="selected1" name="something" required>
+          <option *ngFor="let CodeListPort of war" #b value="{{CodeListPort.warehouseid}}">{{CodeListPort.name}}</option>
+        </select>
+        <div class="invalid-feedback">please select distributor</div>
+      </div>
+        <div class="form-group w-25">
+        <label for="inputname2">supplier Name</label>
+
+       
+        <select id="myElement" class="form-control custom-select form-control browser-default" [(ngModel)]="selected2" name="something2" required>
+        <option *ngFor="let CodeListPort of sup"  #c value="{{CodeListPort.supplierid}}">{{CodeListPort.name}}</option>
+        </select>
+        <div class="invalid-feedback">please select any supplier</div>
+
+    </div>
+    <div class="form-group w-25">
+        <label for="pwd">Quantity:</label>
+        <input type="number" class="form-control" name="pwd"  #mySelect required [(ngModel)]="quanvalue" (change)='onOptionsSelected(mySelect.value)' >
+        <div class="invalid-feedback">please select any supplier</div>
+
+        <div  *ngIf="!check">the total price is{{quanvalue*quantity_p_u}}</div>
+      </div>
+      <div><input class="btn-primary btn"type="submit" (click)="onSubmit()"></div>
+      <!--<div>hello{{selected}}{{selected1}}{{selected2}}</div>  
+   <input name="honey" type="text" readonly [(ngModel)]="quanvalue*quantity_p_u">-->
+</form>
+ </div>
